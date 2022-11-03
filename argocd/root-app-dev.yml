@@ -10,7 +10,7 @@ spec:
   destination:
     namespace: default
     name: in-cluster
-  project: appbundle-project-dev
+  project: default
   source:
     path: argocd/apps-children/dev
     repoURL: https://github.com/tekkisse/testargocd
