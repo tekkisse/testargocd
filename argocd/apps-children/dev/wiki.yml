@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: test-wiki99
+  namespace: hiru-mgmt-argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io  
+spec:
+  project: default
+  source:
+    repoURL: 'https://charts.js.wiki'
+    targetRevision: 2.2.18
+    helm:
+      parameters:
+        - name: ingress.className
+          value: nginx
+        - name: 'ingress.hosts[0].host'
+          value: wiki.demo.k8s.chi.swan.ac.uk
+        - name: ingress.enabled
+          value: 'false'
+    chart: wiki
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: simon-wiki3
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true

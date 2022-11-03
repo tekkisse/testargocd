@@ -6,6 +6,7 @@ metadata:
   finalizers:
   - resources-finalizer.argocd.argoproj.io  
 spec:
+  project: default
   destination:
     name: in-cluster
     namespace: simon-test765
@@ -23,10 +24,9 @@ spec:
         - name: ingress.enabled
           value: 'true'
         - name: ingress.hostname
-          value: discourse.app.k8s.hiru.swan.ac.uk
+          value: discourse.demo.k8s.hiru.swan.ac.uk
         - name: ingress.ingressClassName
           value: nginx
-  project: default
   syncPolicy:
     automated:
       prune: false
