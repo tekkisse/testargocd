@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: root-appbundle-app-dev3
+  name: root-appbundle-app-dev4
   namespace: hiru-mgmt-argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
