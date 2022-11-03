@@ -17,7 +17,7 @@ spec:
         - name: 'ingress.hosts[0].host'
           value: wiki.demo.k8s.chi.swan.ac.uk
         - name: ingress.enabled
-          value: 'true'
+          value: 'false'
     chart: wiki
   destination:
     server: 'https://kubernetes.default.svc'
