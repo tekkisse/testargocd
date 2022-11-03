@@ -6,7 +6,7 @@ metadata:
   finalizers:
   - resources-finalizer.argocd.argoproj.io  
 spec:
-  project: default
+  project: appbundle-project-dev
   destination:
     name: in-cluster
     namespace: simon-test765

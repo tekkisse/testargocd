@@ -6,7 +6,7 @@ metadata:
   finalizers:
   - resources-finalizer.argocd.argoproj.io  
 spec:
-  project: default
+  project: appbundle-project-dev
   source:
     repoURL: 'https://charts.js.wiki'
     targetRevision: 2.2.18
