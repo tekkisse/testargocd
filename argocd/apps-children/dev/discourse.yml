@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: test-discourse99
+spec:
+  destination:
+    name: ''
+    namespace: simon-test765
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: ''
+    repoURL: 'https://charts.bitnami.com/bitnami'
+    targetRevision: 9.0.0
+    chart: discourse
+    helm:
+      parameters:
+        - name: auth.email
+          value: user@user.com
+        - name: auth.password
+          value: password
+        - name: ingress.enabled
+          value: 'true'
+        - name: ingress.hostname
+          value: discourse.app.k8s.hiru.swan.ac.uk
+        - name: ingress.ingressClassName
+          value: nginx
+  project: default
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+    syncOptions:
+      - CreateNamespace=true
