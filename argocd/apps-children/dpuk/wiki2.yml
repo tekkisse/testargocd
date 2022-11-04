@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: serp-dpuk-wiki2
+  namespace: hiru-mgmt-argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io  
+spec:
+  project: app-serp-dpuk
+  source:
+    repoURL: 'https://charts.js.wiki'
+    targetRevision: 2.2.18
+    helm:
+      parameters:
+        - name: ingress.className
+          value: nginx
+        - name: 'ingress.hosts[0].host'
+          value: wiki2.dpuk.k8s.chi.swan.ac.uk
+        - name: ingress.enabled
+          value: 'false'
+    chart: wiki
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: testserp-dpuk-wiki2
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
