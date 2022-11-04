@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: serp-dpuk-wiki3
+  name: serp-dpuk-wiki4
   namespace: hiru-mgmt-argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io  
@@ -15,13 +15,13 @@ spec:
         - name: ingress.className
           value: nginx
         - name: 'ingress.hosts[0].host'
-          value: wiki3.dpuk.k8s.chi.swan.ac.uk
+          value: wiki4.dpuk.k8s.chi.swan.ac.uk
         - name: ingress.enabled
           value: 'false'
     chart: wiki
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: testserp-dpuk-wiki3
+    namespace: testserp-dpuk-wiki4
   syncPolicy:
     automated: {}
     syncOptions:
