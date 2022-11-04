@@ -1,15 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: test-discourse99
+  name: serp-dpuk-discourse0
   namespace: hiru-mgmt-argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io  
 spec:
-  project: appbundle-project-dev
+  project: app-serp-dpuk
   destination:
     name: in-cluster
-    namespace: simon-test765
+    namespace: testserp-dpuk-discourse0
   source:
     path: ''
     repoURL: 'https://charts.bitnami.com/bitnami'
@@ -24,7 +24,7 @@ spec:
         - name: ingress.enabled
           value: 'true'
         - name: ingress.hostname
-          value: discourse.demo.k8s.hiru.swan.ac.uk
+          value: discourse.dpuk.k8s.hiru.swan.ac.uk
         - name: ingress.ingressClassName
           value: nginx
   syncPolicy:

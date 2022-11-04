@@ -1,0 +1,20 @@
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: root-appbundle-serp-dpuk
+  namespace: hiru-mgmt-argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: default
+    name: in-cluster
+  project: app-serp-dpuk
+  syncPolicy:
+    automated:
+      selfHeal: true
+  source:
+    path: argocd/apps-children/dpuk
+    repoURL: https://github.com/tekkisse/testargocd
+    targetRevision: HEAD

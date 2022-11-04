@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: root-appbundle-app-dev400
+  name: root-appbundle-serp-sail
   namespace: hiru-mgmt-argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -10,11 +10,11 @@ spec:
   destination:
     namespace: default
     name: in-cluster
-  project: appbundle-project-dev
+  project: app-serp-sail
   syncPolicy:
     automated:
       selfHeal: true
   source:
-    path: argocd/apps-children/dev
+    path: argocd/apps-children/sail
     repoURL: https://github.com/tekkisse/testargocd
     targetRevision: HEAD
