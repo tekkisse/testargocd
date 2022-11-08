@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: serp-wiki
+  namespace: hiru-mgmt-argocd  
+spec:
+  project: app-serpkustomize-dpuk
+  source:
+    helm:
+      parameters:    
+        - name: 'ingress.hosts[0].host'
+          value: wiki.dpukkustomize.k8s.chi.swan.ac.uk
+  destination:
+    namespace: testserp-kustomize-wiki0
+  
+  
